@@ -25,6 +25,7 @@ let intialClicked = false;
 
 // Intialiaze DOM
 
+
 const intial = () => {
 
 	//Map for the json data 
@@ -153,16 +154,19 @@ for (let i = 0; i < buttons.length; i++) {
 		//Resturn to the initial value
 
 		if (intialClicked && state[0] && prevReturned && lastChecked) {
-            //reload
+            
 			intialClicked = false
-			prevReturned=false
-			state[0]
+			prevReturned = false;
+			state[0] = true;
+			lastChecked = false;
+			intial()
 			location.reload()
 		}
 		//Check is the last accordion has checked
 		if (state[state.length - 1]) {
 			lastChecked = true;
 		}
+		prevReturned=currentReturn
 		
 	});
 }

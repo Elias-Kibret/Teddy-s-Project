@@ -1,6 +1,6 @@
 @mixin sm{
     @media(max-width:360px){
-@content;
+    @content;
     }
 }
 
@@ -9,6 +9,9 @@
         @content;
     }
 }
+
+
+
 .panel{
     @include sm{
 

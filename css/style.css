@@ -61,6 +61,7 @@ body {
 #main .header .icon {
   width: 25px;
   height: 25px;
+  padding: 10px;
   transition: transform 0.7s ease-in-out;
 }
 #main .header .icon img {
