@@ -80,3 +80,11 @@ const AccordionDOM = data?.map((item) => {
     `;
 });
 container.innerHTML = AccordionDOM;
+
+let buttons = document.getElementsByClassName("icon");
+console.log(buttons.length);
+const state = [false, false, false, false];
+
+for (let i = 0; i < buttons.length; i++) {
+	buttons[i].addEventListener("click", () => {});
+}

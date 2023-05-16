@@ -9,25 +9,49 @@ body {
   margin: auto;
 }
 
-.main {
-  padding: 10px 20px;
+#main {
+  padding: 10px 0px;
   background-color: #eee9e9;
   width: 80%;
   margin: auto;
+  margin-top: 30px;
 }
-.main .header {
+#main .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 10px;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(221, 219, 219);
+  border-top: 1px solid rgb(221, 219, 219);
 }
-.main .header h1 {
+#main .header h1 {
   font-size: 17px;
 }
-.main .header .icon {
+#main .header .icon {
   width: 25px;
   height: 25px;
 }
-.main .header .icon img {
+#main .header .icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#main .list {
+  display: flex;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+#main .list p {
+  padding-right: 30px;
+  width: 65%;
+}
+#main .list .list-image {
+  width: 250px;
+  height: 100;
+}
+#main .list .list-image img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
