@@ -1,0 +1,41 @@
+@mixin sm{
+    @media(max-width:360px){
+@content;
+    }
+}
+
+@mixin xl{
+    @media (min-width:2080px) {
+        @content;
+    }
+}
+.panel{
+    @include sm{
+
+flex-direction: column;
+p{
+    padding: 0;
+    
+}
+img{
+    margin-top:20px;
+}
+
+    }
+
+
+    @include xl{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p{
+            padding: 0px;
+            
+        }
+        img{
+            margin-top:20px;
+            width:200px !important;
+            height: 50% !important;
+        }
+    }
+}

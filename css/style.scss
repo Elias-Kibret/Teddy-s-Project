@@ -2,6 +2,8 @@
 margin: 0px; 
 padding:0px;
 }
+@import 'breakpoints';
+
 body{
     font-family: 'Poppins', sans-serif;
     max-width:1280px ;
@@ -21,6 +23,7 @@ body{
         padding: 10px 20px;
         border-bottom: 1px solid rgb(221, 219, 219);
         // border-top: 1px solid rgb(221, 219, 219);
+        
         .title{
             font-size: 17px;
             color: gray;
@@ -31,6 +34,7 @@ body{
         .icon{
             width: 25px;
             height: 25px;
+            padding:10px
             transition: transform .7s ease-in-out;
             img{
                 width: 100%;
@@ -68,7 +72,10 @@ body{
                 object-fit: contain;
             }
         }
+
     }
     
+    
 }
+
 

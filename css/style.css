@@ -3,6 +3,33 @@
   padding: 0px;
 }
 
+@media (max-width: 360px) {
+  .panel {
+    flex-direction: column;
+  }
+  .panel p {
+    padding: 0;
+  }
+  .panel img {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 2080px) {
+  .panel {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .panel p {
+    padding: 0px;
+  }
+  .panel img {
+    margin-top: 20px;
+    width: 200px !important;
+    height: 50% !important;
+  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
   max-width: 1280px;
