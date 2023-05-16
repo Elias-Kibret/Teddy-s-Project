@@ -1,0 +1,6 @@
+ <img src="./assets/${
+    state[index] ? "arrowDown.svg" : "lock.svg"
+} "  alt=${state[index] ? "arrowDown" : "lock"}/>
+
+
+
