@@ -23,14 +23,18 @@ body {
   padding-bottom: 10px;
   padding: 10px 20px;
   border-bottom: 1px solid rgb(221, 219, 219);
-  border-top: 1px solid rgb(221, 219, 219);
 }
-#main .header h1 {
+#main .header .title {
   font-size: 17px;
+  color: gray;
+}
+#main .header .active {
+  color: black;
 }
 #main .header .icon {
   width: 25px;
   height: 25px;
+  transition: transform 0.7s ease-in-out;
 }
 #main .header .icon img {
   width: 100%;
@@ -38,20 +42,29 @@ body {
   -o-object-fit: contain;
      object-fit: contain;
 }
-#main .list {
+#main .header .icon .show {
+  display: block;
+}
+#main .header .icon .hide {
+  display: none !important;
+}
+#main .header .icon .rotateIcons {
+  transform: rotate(180deg);
+}
+#main .panel {
   display: flex;
   padding: 10px 20px;
   margin-top: 10px;
 }
-#main .list p {
+#main .panel p {
   padding-right: 30px;
   width: 65%;
 }
-#main .list .list-image {
+#main .panel .panel-image {
   width: 250px;
   height: 100;
 }
-#main .list .list-image img {
+#main .panel .panel-image img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;

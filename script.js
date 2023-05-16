@@ -56,35 +56,100 @@ const data = [
 	},
 ];
 let container = document.getElementById("main");
-const AccordionDOM = data?.map((item) => {
-	return `<section>
-          <div class="header">
-             <h1>
-                ${item.title.value}
-             </h1>
-             <div class="icon">
-             <img src="./assets/arrowDown.svg" alt="arrow"/>
-             </div>
-          </div>
-          <div class="list">
-            <p>${item.panel.value}
-          </p>
-          <div class="list-image">
-          <img src="${"./assets/" + item?.panel?.image?.src}" alt=${
-		item?.panel.image.title
-	}/>
-          </div>
-        
-          </div>
-    </section>
-    `;
-});
-container.innerHTML = AccordionDOM;
-
 let buttons = document.getElementsByClassName("icon");
-console.log(buttons.length);
-const state = [false, false, false, false];
+let panel = document.getElementsByClassName("panel");
+let title = document.getElementsByClassName("title");
+let arrowButton = document.getElementsByClassName("arrow");
+let lockButton = document.getElementsByClassName("lock");
 
+const state = [true, false, false, false];
+let active = false;
+let intialClicked = false;
+
+const intial = () => {
+	const AccordionDOM = data?.map((item, index) => {
+		return `<section>
+				  <div class="header">
+					 <h1 class="title">
+						${item.title.value}
+					 </h1>
+					 <div class="icon">
+            
+					 <img src="./assets/arrowDown.svg" class="${
+							state[index] ? "show" : "hide"
+						} arrow" alt="arrow down"/>	
+					 <img src="./assets/lock.svg" class="${
+							!state[index] ? "show" : "hide"
+						} lock" alt="lock"/>				
+	               
+									
+					 </div>
+				  </div>
+              
+				  <div class="panel">
+					<p>${item.panel.value}
+				  </p>
+				  <div class="panel-image">
+				  <img src="${"./assets/" + item?.panel?.image?.src}" alt=${
+			item?.panel.image.title
+		}/>
+	
+				  </div>
+            
+				  </div>
+			</section>`;
+	});
+	container.innerHTML = AccordionDOM;
+	for (let i = 0; i < buttons.length; i++) {
+		if (!state[i] || i == 0) {
+			panel[i].style.display = "none";
+		}
+		if (i == 0 && state[i]) {
+			title[i].classList.add("active");
+		}
+	}
+};
+intial();
+let prevReturned;
 for (let i = 0; i < buttons.length; i++) {
-	buttons[i].addEventListener("click", () => {});
+	active = true;
+	buttons[i].addEventListener("click", () => {
+		if (
+			state[i] &&
+			state.slice(i + 1).every((item) => item == false) &&
+			intialClicked
+		) {
+			panel[i].style.display = "none";
+			state[i] = false;
+		} else if (state.slice(0, i).every((item) => item == true)) {
+			panel[i].style.display = "flex";
+			state[i] = true;
+		}
+		if (!intialClicked && i == 0) {
+			panel[i].style.display = "flex";
+			intialClicked = true;
+		}
+
+		if ((i == 0 || state[i - 1]) && active && i !== state.length - 1) {
+			title[i + 1].classList.add("active");
+			arrowButton[i + 1].classList.add("show");
+			arrowButton[i + 1].classList.remove("hide");
+			lockButton[i + 1].classList.add("hide");
+			lockButton[i + 1].classList.remove("show");
+		}
+		//Toggle Arrow
+		if (state[i]) {
+			console.log("add", i);
+			arrowButton[i].classList.add("rotateIcons");
+		}
+		if (!state[i]) {
+			arrowButton[i].classList.remove("rotateIcons");
+		}
+		const currentReturn = state.every((item) => item == false);
+
+		if (intialClicked && state[0] && prevReturned) {
+			intial();
+		}
+		prevReturned = currentReturn;
+	});
 }
